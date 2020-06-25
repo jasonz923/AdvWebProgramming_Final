@@ -1,0 +1,177 @@
+<html>
+	<head>
+		<style>
+                        body {
+                                background-color:#00CCCC;
+                        }
+
+                        .sidebar {
+                                height: 100%; /* 100% Full-height */
+                                width: 10%; /* 0 width - change this with JavaScript */
+                                position: fixed; /* Stay in place */
+                                z-index: 1; /* Stay on top */
+                                top: 0; /* Stay at the top */
+                                left: 0;
+                                background-color: #bce0dc;
+                        }
+
+			.title {
+				left: 50%;
+				top: 0.5%;
+				position: fixed;
+				text-decoration: underline;
+			}
+
+			.notes {
+                                margin-left: 11%;
+                                margin-right: 10px;
+                                top: 100px;
+                                position: relative;
+                        }
+
+		</style>
+
+
+		<script>
+
+			var audioCtx = new window.AudioContext();
+			var freq = 440;
+
+			var notes = [65.40639, 69.29566, 73.41619, 77.78175,
+				82.40689, 87.30706, 92.49861, 97.99886, 103.8262,
+				110, 116.5409, 123.4708, 130.8128, 138.5913,
+				146.8324, 155.5635, 164.8138, 174.6141, 184.9972,
+				195.9977, 207.6523, 220, 233.0819, 246.9417,
+				261.6256, 277.1826, 293.6648, 311.127, 329.6276,
+				349.2282, 369.9944, 391.9954, 415.3047, 440,
+				466.1638, 493.8833, 523.2511, 554.3653, 587.3295,
+				622.254, 659.2551, 698.4565, 739.9888, 783.9909,
+				830.6094, 880, 932.3275, 987.7666, 1046.502, 
+				1108.731, 1174.659, 1244.508, 1318.51, 1396.913,
+				1479.978, 1567.982, 1661.219, 1760, 1864.655,
+				1975.533];
+
+			function play() {
+				var osc = audioCtx.createOscillator();
+				osc.frequency.value = freq;
+				osc.connect(audioCtx.destination);
+				osc.start();
+				osc.stop(audioCtx.currentTime + 1);
+			}
+
+			function randomFreq() {
+				var i = Math.floor(Math.random() * notes.length);
+				freq = notes[i];
+				play();
+			}
+
+			function check(guess){
+				if(guess == freq){
+					document.getElementById("answer").innerHTML = "Correct";
+				}
+				else{
+					document.getElementById("answer").innerHTML = "Wrong";
+				}
+			}
+
+		</script>
+
+
+
+	</head>
+
+	<body>
+		<div class="title">
+			<h1>Frequency Quiz</h1>
+			<h3 id="answer"></h3>
+		</div>
+
+		<div class="sidebar">
+                        <a href="index.html">Home</a><br>
+                        <a href="quiz.html">Frequency Quiz</a><br>
+                        <a href="notes.html">Play Notes</a><br>
+		</div>
+
+		
+		<div class="notes">
+			Try quizzing yourself by guessing the note that is played. The first note when the page loads will be A4/440. Click 'New Note' to hear a new note to guess. Click 'Play Same Note' to hear the same note again. If you guess incorrectly than the word 'Wrong' will appear above. Keep guessing until you get it and see the word 'Correct' above.
+			<br><br>
+
+			<button onclick = "randomFreq()">New Note</button>
+			<button onclick = "play()">Play Same Note</button>
+			<br><br>
+
+			<button onclick = "check(65.40639)">C2/65.40639</button>
+                        <button onclick = "check(69.29566)">C#2/Db2/69.29566</button>
+                        <button onclick = "check(73.41619)">D2/73.41619</button>
+                        <button onclick = "check(77.78175)">D#2/Eb2/77.78175</button>
+                        <button onclick = "check(82.40689)">E2/82.40689</button>
+                        <button onclick = "check(87.30706)">F2/87.30706</button>
+                        <button onclick = "check(92.49861)">F#2/Gb2/92.49861</button>
+                        <button onclick = "check(97.99886)">G2/97.99886</button>
+                        <button onclick = "check(103.8262)">G#2/Ab2/103.8262</button>
+                        <button onclick = "check(110)">A2/110</button>
+                        <button onclick = "check(116.5409)">A#2/Bb2/116.5409</button>
+                        <button onclick = "check(123.4708)">B2/123.4708</button>
+                        <br><br>
+
+                        <button onclick = "check(130.8128)">C3/130.8128</button>
+                        <button onclick = "check(138.5913)">C#3/Db3/138.5913</button>
+                        <button onclick = "check(146.8324)">D3/146.8324</button>
+                        <button onclick = "check(155.5635)">D#3/Eb3/155.5635</button>
+                        <button onclick = "check(164.8138)">E3/164.8138</button>
+                        <button onclick = "check(174.6141)">F3/174.6141</button>
+                        <button onclick = "check(184.9972)">F#3/Gb3/184.9972</button>
+                        <button onclick = "check(195.9977)">G3/195.9977</button>
+                        <button onclick = "check(207.6523)">G#3/Ab3/207.6523</button>
+                        <button onclick = "check(220)">A3/220</button>
+                        <button onclick = "check(233.0819)">A#3/Bb3/233.0819</button>
+                        <button onclick = "check(246.9417)">B3/246.9417</button>
+                        <br><br>
+
+ 			<button onclick = "check(261.6256)">C4/261.6256</button>
+                        <button onclick = "check(277.1826)">C#4/Db4/277.1826</button>
+                        <button onclick = "check(293.6648)">D4/293.6648</button>
+                        <button onclick = "check(311.127)">D#4/Eb4/311.127</button>
+                        <button onclick = "check(329.6276)">E4/329.6276</button>
+                        <button onclick = "check(349.2282)">F4/349.2282</button>
+                        <button onclick = "check(369.9944)">F#4/Gb4/369.9944</button>
+                        <button onclick = "check(391.9954)">G4/391.9954</button>
+                        <button onclick = "check(415.3047)">G#4/Ab4/415.3047</button>
+                        <button onclick = "check(440)">A4/440</button>
+                        <button onclick = "check(466.1638)">A#4/Bb4/466.1638</button>
+                        <button onclick = "check(493.8833)">B4/493.8833</button>
+                        <br><br>
+
+                        <button onclick = "check(523.2511)">C5/523.2511</button>
+                        <button onclick = "check(554.3653)">C#5/Db5/554.3653</button>
+                        <button onclick = "check(587.3295)">D5/587.3295</button>
+                        <button onclick = "check(622.2540)">D#5/Eb5/622.2540</button>
+                        <button onclick = "check(659.2551)">E5/659.2551</button>
+                        <button onclick = "check(698.4565)">F5/698.4565</button>
+                        <button onclick = "check(739.9888)">F#5/Gb5/739.9888</button>
+                        <button onclick = "check(783.9909)">G5/783.9909</button>
+                        <button onclick = "check(830.6094)">G#5/Ab5/830.6094</button>
+                        <button onclick = "check(880)">A5/880</button>
+                        <button onclick = "check(932.3275)">A#5/Bb5/932.3275</button>
+                        <button onclick = "check(987.7666)">B5/987.7666</button>
+                        <br><br>
+
+			<button onclick = "check(1046.502)">C6/1046.502</button>
+                        <button onclick = "check(1108.731)">C#6/Db6/1108.731</button>
+                        <button onclick = "check(1174.659)">D6/1174.659</button>
+                        <button onclick = "check(1244.508)">D#6/Eb6/1244.508</button>
+                        <button onclick = "check(1318.510)">E6/1318.510</button>
+                        <button onclick = "check(1396.913)">F6/1396.913</button>
+                        <button onclick = "check(1479.978)">F#6/Gb6/1479.978</button>
+                        <button onclick = "check(1567.982)">G6/1567.982</button>
+                        <button onclick = "check(1661.219)">G#6/Ab6/1661.219</button>
+                        <button onclick = "check(1760)">A6/1760</button>
+                        <button onclick = "check(1864.655)">A#6/Bb6/1864.655</button>
+                        <button onclick = "check(1975.533)">B6/1975.533</button>
+                        <br><br>
+
+	</body>
+
+</html>
+

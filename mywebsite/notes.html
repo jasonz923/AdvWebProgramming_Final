@@ -1,0 +1,141 @@
+<html>
+	<head>
+		<style>
+                        body {
+                                background-color:#00CCCC;
+                        }
+
+                        .sidebar {
+                                height: 100%; /* 100% Full-height */
+                                width: 10%; /* 0 width - change this with JavaScript */
+                                position: fixed; /* Stay in place */
+                                z-index: 1; /* Stay on top */
+                                top: 0; /* Stay at the top */
+                                left: 0;
+                                background-color: #bce0dc;
+                        }
+
+			.title {
+				left: 50%;
+				top: 10px;
+				position: fixed;
+				text-decoration: underline;
+			}
+
+			.notes {
+				margin-left: 11%;
+				margin-right: 10px;
+				top: 100px;
+				position: relative;
+			}
+
+		</style>
+
+	<script>
+		// create web audio api context
+		var audioCtx = new window.AudioContext();
+
+		function play(freq){
+			var oscillator = audioCtx.createOscillator();
+			oscillator.frequency.value = freq;
+			oscillator.type = "sine";
+			oscillator.connect(audioCtx.destination);
+			oscillator.start();
+			oscillator.stop(audioCtx.currentTime + 1);
+		}
+
+	</script>
+
+	</head>
+
+	<body>
+		<h1 class="title">Play Notes</h1>
+
+		<div class="sidebar">
+                        <a href="index.html">Home</a><br>
+                        <a href="quiz.html">Frequency Quiz</a><br>
+                        <a href="notes.html">Play Notes</a><br>
+		</div>
+
+		<div class="notes">
+
+			<p>Click a button to play the note listed on the button. Each button shows the note and frequency in Hertz that will be played when clicked. Make sure to wait until one note stops before playing another. Give it a try!!!</p>
+			<br><br><br>
+
+
+			<button onclick = "play(65.40639)">C2/65.40639</button>
+			<button onclick = "play(69.29566)">C#2/Db2/69.29566</button>
+			<button onclick = "play(73.41619)">D2/73.41619</button>
+			<button onclick = "play(77.78175)">D#2/Eb2/77.78175</button>
+			<button onclick = "play(82.40689)">E2/82.40689</button>
+			<button onclick = "play(87.30706)">F2/87.30706</button>
+			<button onclick = "play(92.49861)">F#2/Gb2/92.49861</button>
+			<button onclick = "play(97.99886)">G2/97.99886</button>
+			<button onclick = "play(103.8262)">G#2/Ab2/103.8262</button>
+			<button onclick = "play(110)">A2/110</button>
+			<button onclick = "play(116.5409)">A#2/Bb2/116.5409</button>
+			<button onclick = "play(123.4708)">B2/123.4708</button>
+			<br><br>
+
+			<button onclick = "play(130.8128)">C3/130.8128</button>
+                        <button onclick = "play(138.5913)">C#3/Db3/138.5913</button>
+                        <button onclick = "play(146.8324)">D3/146.8324</button>
+                        <button onclick = "play(155.5635)">D#3/Eb3/155.5635</button>
+                        <button onclick = "play(164.8138)">E3/164.8138</button>
+                        <button onclick = "play(174.6141)">F3/174.6141</button>
+                        <button onclick = "play(184.9972)">F#3/Gb3/184.9972</button>
+                        <button onclick = "play(195.9977)">G3/195.9977</button>
+                        <button onclick = "play(207.6523)">G#3/Ab3/207.6523</button>
+                        <button onclick = "play(220)">A3/220</button>
+                        <button onclick = "play(233.0819)">A#3/Bb3/233.0819</button>
+                        <button onclick = "play(246.9417)">B3/246.9417</button>
+			<br><br>
+
+			<button onclick = "play(261.6256)">C4/261.6256</button>
+                        <button onclick = "play(277.1826)">C#4/Db4/277.1826</button>
+                        <button onclick = "play(293.6648)">D4/293.6648</button>
+                        <button onclick = "play(311.127)">D#4/Eb4/311.127</button>
+                        <button onclick = "play(329.6276)">E4/329.6276</button>
+                        <button onclick = "play(349.2282)">F4/349.2282</button>
+                        <button onclick = "play(369.9944)">F#4/Gb4/369.9944</button>
+                        <button onclick = "play(391.9954)">G4/391.9954</button>
+                        <button onclick = "play(415.3047)">G#4/Ab4/415.3047</button>
+                        <button onclick = "play(440)">A4/440</button>
+                        <button onclick = "play(466.1638)">A#4/Bb4/466.1638</button>
+                        <button onclick = "play(493.8833)">B4/493.8833</button>
+			<br><br>
+
+			<button onclick = "play(523.2511)">C5/523.2511</button>
+                        <button onclick = "play(554.3653)">C#5/Db5/554.3653</button>
+                        <button onclick = "play(587.3295)">D5/587.3295</button>
+                        <button onclick = "play(622.2540)">D#5/Eb5/622.2540</button>
+                        <button onclick = "play(659.2551)">E5/659.2551</button>
+                        <button onclick = "play(698.4565)">F5/698.4565</button>
+                        <button onclick = "play(739.9888)">F#5/Gb5/739.9888</button>
+                        <button onclick = "play(783.9909)">G5/783.9909</button>
+                        <button onclick = "play(830.6094)">G#5/Ab5/830.6094</button>
+                        <button onclick = "play(880)">A5/880</button>
+                        <button onclick = "play(932.3275)">A#5/Bb5/932.3275</button>
+                        <button onclick = "play(987.7666)">B5/987.7666</button>
+			<br><br>
+
+			<button onclick = "play(1046.502)">C6/1046.502</button>
+                        <button onclick = "play(1108.731)">C#6/Db6/1108.731</button>
+                        <button onclick = "play(1174.659)">D6/1174.659</button>
+                        <button onclick = "play(1244.508)">D#6/Eb6/1244.508</button>
+                        <button onclick = "play(1318.510)">E6/1318.510</button>
+                        <button onclick = "play(1396.913)">F6/1396.913</button>
+                        <button onclick = "play(1479.978)">F#6/Gb6/1479.978</button>
+                        <button onclick = "play(1567.982)">G6/1567.982</button>
+                        <button onclick = "play(1661.219)">G#6/Ab6/1661.219</button>
+                        <button onclick = "play(1760)">A6/1760</button>
+                        <button onclick = "play(1864.655)">A#6/Bb6/1864.655</button>
+                        <button onclick = "play(1975.533)">B6/1975.533</button>
+			<br><br>
+
+
+		</div>
+
+	</body>
+
+</html>
